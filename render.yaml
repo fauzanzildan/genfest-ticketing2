@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: genfest-ticketing-api
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PG_SSL
+        value: "true"
+      - key: DATABASE_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: XENDIT_SECRET_KEY
+        sync: false
+      - key: XENDIT_CALLBACK_TOKEN
+        sync: false
+      - key: ADMIN_KEY
+        sync: false
+      - key: TICKET_PRICE
+        value: "130000"
+      - key: TICKET_LIMIT
+        value: "200"
+      - key: EVENT_NAME
+        value: "GENFEST IKMAB-K 2026 - FUN RUN"
+      - key: EVENT_DATE
+        value: "15 November 2026"
+      - key: EVENT_LOCATION
+        value: "Area Kampus 2 UIN K.H. Abdurrahman Wahid Pekalongan"
